@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './User.css'
 
-const User = ({user}) => {
+const User = ({user, getUser}) => {
 
     const {id, name} = user;
 
     return (
         <div>
-            {id}) {name}
+            <button onClick={()=>getUser(user)}>{id}) {name}</button>
         </div>
     );
 };
