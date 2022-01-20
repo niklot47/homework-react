@@ -3,16 +3,11 @@ import React, {useEffect, useState} from 'react';
 import {UserService as userService} from "../../services/user.service";
 import User from "../User/User";
 
-const Users = ({getUser}) => {
-    const [users, setUsers] = useState([]);
-
-    useEffect(()=>{
-        userService.getAll().then(value => setUsers(value))
-    },[])
+const Users = ({filteredUsers}) => {
 
     return (
         <div>
-            {users.map(user => <User key={user.id} user={user} getUser={getUser}/>)}
+            {filteredUsers.map(user => <User key={user.id} user={user}/>)}
         </div>
     );
 };
