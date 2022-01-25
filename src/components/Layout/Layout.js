@@ -6,7 +6,7 @@ const Layout = () => {
     return (
         <>
             <div className={css.header}>
-                <NavLink to='/'>Users</NavLink>
+                <NavLink to='/users'>Users</NavLink>
                 <NavLink to='/posts'>Posts</NavLink>
             </div>
             <Outlet/>

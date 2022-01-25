@@ -1,0 +1,22 @@
+.all {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.left{
+    padding-right: 10px;
+    width: 45%;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    height: 90vh;
+}
+
+.right{
+    box-sizing: border-box;
+    width: 50%;
+
+
+}

@@ -1,0 +1,15 @@
+.post{
+    box-sizing: border-box;
+    border: 2px solid silver;
+    background: #f3e2e2;
+    border-radius: 5px;
+
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.post h2{
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}

@@ -1,0 +1,16 @@
+.photo{
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+img{
+    height: 350px;
+}
+
+b{
+    font-size: 18px;
+}

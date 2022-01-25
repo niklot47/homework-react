@@ -1,12 +1,4 @@
-button{
-    padding: 5px;
-    min-width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.user{
+.post{
     min-width: 550px;
     background: #e3bdbd;
     padding: 5px;
@@ -15,9 +7,4 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.bp{
-    display: flex;
-    gap: 5px;
 }

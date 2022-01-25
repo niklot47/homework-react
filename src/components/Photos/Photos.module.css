@@ -1,0 +1,11 @@
+.wrap{
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    width: available;
+    overflow-x: auto;
+    gap: 40px;
+
+    background: #e3bdbd;
+    border-radius: 5px;
+}

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {userService} from "../../services/user.service";
 import User from "../../components/User/User";
-import {Outlet} from "react-router-dom";
+import {Outlet, Route, Routes} from "react-router-dom";
 
-import css from './UserPage.module.css'
+import css from './UsersPage.module.css'
 
 const UsersPage = () => {
     const [users, setUsers] = useState([]);
@@ -15,10 +15,7 @@ const UsersPage = () => {
     return (
         <div className={css.all}>
             <div className={css.left}>
-                <h2>Users:</h2>
-                {
-                    users.map(user => <User key={user.id} user={user}/>)
-                }
+                {users.map(user => <User key={user.id} user={user}/>)}
             </div>
             <div className={css.right}>
                 <Outlet/>
