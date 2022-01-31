@@ -10,10 +10,10 @@ const reducer = (state, action) =>{
         case 'cat':
             console.log(action);
             console.log(action.type+' on reducer.');
-            return {...state, cats: state.cats.push(action)}
+            return {...state, cats: [...state.cats, action]}
         case 'dog':
             console.log(action.type+' on reducer.');
-            return {...state, dogs: state.dogs.push(action)}
+            return {...state, dogs: [...state.dogs, action]}
     }
     return state
 }
