@@ -1,0 +1,10 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.out{
+    display: flex;
+    gap: 30px;
+}
