@@ -1,7 +1,22 @@
 .car{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     margin: 20px;
+    background: #e4f6e8;
+    border-radius: 5px;
+    padding: 10px;
+    width: 450px;
+    height: 90px;
+    border: 2px solid #b6dcbf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
+}
+
+.img{
+    background: #ffffff;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #b6dcbf;
+    border-radius: 5px;
 }
