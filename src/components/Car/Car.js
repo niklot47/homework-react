@@ -2,8 +2,13 @@ import React from 'react';
 
 import css from "./Car.module.css"
 import img from '../../img/car-placeholder.png'
+import {useDispatch} from "react-redux";
+import {deleteCar} from "../../stor";
 
-const Car = ({car: {id, model, price, year}, getCarId}) => {
+const Car = ({car: {id, model, price, year}}) => {
+
+    const dispatch = useDispatch();
+
     return (
         <div className={css.car}>
             <div>
@@ -14,7 +19,7 @@ const Car = ({car: {id, model, price, year}, getCarId}) => {
                 <div>Price: {price}</div>
                 <div>Year: {year}</div>
             </div>
-            <button onClick={()=>getCarId(id)} n>Delete</button>
+            <button onClick={()=>dispatch(deleteCar({id}))}>Delete</button>
         </div>
     );
 };
