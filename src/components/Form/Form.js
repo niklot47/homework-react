@@ -13,6 +13,7 @@ const Form = () => {
     const dispatch = useDispatch();
 
     const submit = (data) => {
+        console.log(data);
         if (data.model === '') {
             setError('Enter model')
         } else if (data.price === '') {
@@ -26,7 +27,6 @@ const Form = () => {
             setError(null)
             reset();
         }
-
     }
 
 

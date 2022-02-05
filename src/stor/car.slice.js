@@ -38,6 +38,20 @@ export const deleteCarThunk = createAsyncThunk(
     }
 )
 
+export const patchCar = createAsyncThunk(
+    'carSlice/patchCar',
+    async ({data}, {dispatch})=>{
+        try{
+            console.log("slice\n", data);
+
+            const allCar = await carService.patch(data.id, data)
+            dispatch({data: allCar})
+        }catch (e) {
+            console.log(e);
+        }
+    }
+)
+
 
 
 const carSlice = createSlice({
@@ -64,7 +78,9 @@ const carSlice = createSlice({
         sortByYear: (state, action) => {
             state.cars = state.cars.sort((a, b) => a.year > b.year ? 1 : -1)
         },
-
+        getCarToEdit: (state, action)=>{
+            return state.cars.filter(car => car.id === action.payload.id)
+        }
     },
     extraReducers: {
         [getAllCars.pending]: (state, action) => {
