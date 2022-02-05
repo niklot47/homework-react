@@ -1,0 +1,20 @@
+.header{
+    background: #efd4d4;
+    border-bottom: 2px solid #cea7a7;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header a{
+    text-decoration: none;
+    font-size: 30px;
+    color: #855050;
+}
+
+.header a[class='active']{
+    text-decoration: underline;
+}
