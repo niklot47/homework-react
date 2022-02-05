@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import css from './Users.module.css';
-import {getAllUsers} from "../../stor/user.slice";
 import User from "../User/User";
+import {getAllUsers} from "../../stor";
 
 const Users = () => {
     const {users, status, error} = useSelector(state=>state['userReducer']);
@@ -11,7 +11,7 @@ const Users = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        //dispatch(getAllUsers())
+        dispatch(getAllUsers())
     },[])
 
 

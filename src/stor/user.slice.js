@@ -1,13 +1,17 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {userService} from "../services/user.service";
+import {userService} from "../services";
+
+
 
 export const getAllUsers = createAsyncThunk(
     'userSlice/getAllUsers',
     async (_, {rejectWithValue}) => {
         try {
-            const users = await userService.getAll();
-            return users
+            console.log(111)
+            const allUsers = await userService.getAll();
+            return allUsers
         } catch (e) {
+            console.log(e);
             return rejectWithValue(e.message)
         }
     }
@@ -16,18 +20,29 @@ export const getAllUsers = createAsyncThunk(
 const userSlice = createSlice({
     name: 'userSlice',
 
-    initialState:{
+    initialState: {
         users: [],
         status: null,
         errors: null
     },
 
-    reducers:{
-
-    },
+    reducers: {},
 
     extraReducers: {
-
+        [getAllUsers.pending]: (state, action) => {
+            state.status = "pending"
+            state.error = null
+        },
+        [getAllUsers.fulfilled]: (state, action) => {
+            state.status = "fulfilled"
+            state.error = null
+            state.users = action.payload
+            console.log(state.users);
+        },
+        [getAllUsers.rejected]: (state, action) => {
+            state.status = "rejected"
+            state.error = action.payload
+        }
     }
 })
 

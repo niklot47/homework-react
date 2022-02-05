@@ -1,11 +1,11 @@
-const additionalURL = 'https://jsonplaceholder.typicode.com'
+const baseURL = 'https://jsonplaceholder.typicode.com'
 
-export const urls = {
-    users: '/users',
-    posts: '/posts',
-    comments: '/comments',
-    albums: '/albums',
-    photos: '/photos'
-}
+// export const urls = {
+//     users: '/users',
+//     posts: '/posts',
+//     comments: '/comments',
+//     albums: '/albums',
+//     photos: '/photos'
+// }
 
-export default additionalURL;
+export default baseURL;

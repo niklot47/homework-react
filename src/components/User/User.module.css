@@ -1,0 +1,23 @@
+.img{
+    width: 100px;
+}
+
+.all{
+    width: 50vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #e4f6e8;
+    border: 2px solid #b6dcbf;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.mi, .ai{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

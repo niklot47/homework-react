@@ -1,3 +1,11 @@
 .all{
+    margin-top: 10px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    height: 85vh;
+    overflow-y: auto;
 }
