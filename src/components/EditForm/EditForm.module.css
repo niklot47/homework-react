@@ -1,0 +1,39 @@
+.form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+
+}
+
+.btn{
+    display: flex;
+    width: 65px;
+    align-items: center;
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3px;
+}
+
+.lbl{
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+}
+
+.btnPnl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.err{
+    color: red;
+}
+

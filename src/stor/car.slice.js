@@ -16,11 +16,11 @@ export const getAllCars = createAsyncThunk(
 
 export const createCar = createAsyncThunk(
     'carSlice/createCar',
-    async ({data}, {dispatch})=>{
-        try{
+    async ({data}, {dispatch}) => {
+        try {
             const newCar = await carService.create(data);
             dispatch(addCar({data: newCar}))
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
     }
@@ -28,11 +28,12 @@ export const createCar = createAsyncThunk(
 
 export const deleteCarThunk = createAsyncThunk(
     'carSlice/deleteCar',
-    async ({id}, {dispatch})=>{
-        try{
+    async ({id}, {dispatch}) => {
+        console.log("slice\n", id);
+        try {
             await carService.deleteById(id)
             dispatch(deleteCar({id}))
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
     }
@@ -40,18 +41,16 @@ export const deleteCarThunk = createAsyncThunk(
 
 export const patchCar = createAsyncThunk(
     'carSlice/patchCar',
-    async ({data}, {dispatch})=>{
-        try{
+    async ({id, data}, {dispatch}) => {
+        try {
             console.log("slice\n", data);
-
-            const allCar = await carService.patch(data.id, data)
-            dispatch({data: allCar})
-        }catch (e) {
+            await carService.patch(id, {...data})
+            getAllCars();
+        } catch (e) {
             console.log(e);
         }
     }
 )
-
 
 
 const carSlice = createSlice({
@@ -78,9 +77,9 @@ const carSlice = createSlice({
         sortByYear: (state, action) => {
             state.cars = state.cars.sort((a, b) => a.year > b.year ? 1 : -1)
         },
-        getCarToEdit: (state, action)=>{
-            return state.cars.filter(car => car.id === action.payload.id)
-        }
+        sortById: (state, action) => {
+            state.cars = state.cars.sort((a, b) => a.id < b.id ? 1 : -1)
+        },
     },
     extraReducers: {
         [getAllCars.pending]: (state, action) => {
@@ -111,5 +110,5 @@ function sortByNameFunc(a, b) {
 
 const carReducer = carSlice.reducer;
 
-export const {addCar, deleteCar, sortByModel, sortByPrice, sortByYear} = carSlice.actions;
+export const {addCar, deleteCar, sortByModel, sortByPrice, sortByYear, sortById} = carSlice.actions;
 export default carReducer;
