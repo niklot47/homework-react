@@ -14,6 +14,32 @@ export const getAllCars = createAsyncThunk(
     }
 )
 
+export const createCar = createAsyncThunk(
+    'carSlice/createCar',
+    async ({data}, {dispatch})=>{
+        try{
+            const newCar = await carService.create(data);
+            dispatch(addCar({data: newCar}))
+        }catch (e) {
+            console.log(e);
+        }
+    }
+)
+
+export const deleteCarThunk = createAsyncThunk(
+    'carSlice/deleteCar',
+    async ({id}, {dispatch})=>{
+        try{
+            await carService.deleteById(id)
+            dispatch(deleteCar({id}))
+        }catch (e) {
+            console.log(e);
+        }
+    }
+)
+
+
+
 const carSlice = createSlice({
     name: 'carSlice',
     initialState: {
@@ -23,16 +49,11 @@ const carSlice = createSlice({
     },
     reducers: {
         addCar: (state, action) => {
-            state.cars.push({
-                id: new Date().getTime(),
-                ...action.payload.data
-            })
+            console.log(action.payload.date);
+            state.cars.push(action.payload.data)
         },
         deleteCar: (state, action) => {
             state.cars = state.cars.filter(car => car.id !== action.payload.id)
-        },
-        deleteAll: (state, action) => {
-            state.cars = []
         },
         sortByModel: (state, action) => {
             state.cars = state.cars.sort((a, b) => sortByNameFunc(a, b))
@@ -74,5 +95,5 @@ function sortByNameFunc(a, b) {
 
 const carReducer = carSlice.reducer;
 
-export const {addCar, deleteCar, deleteAll, sortByModel, sortByPrice, sortByYear} = carSlice.actions;
+export const {addCar, deleteCar, sortByModel, sortByPrice, sortByYear} = carSlice.actions;
 export default carReducer;

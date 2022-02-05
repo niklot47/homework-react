@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 
 import css from "./Form.module.css"
-import {addCar, deleteAll, sortByModel, sortByPrice, sortByYear,} from "../../stor";
+import {sortByModel, sortByPrice, sortByYear, createCar} from "../../stor";
 
 const Form = () => {
 
@@ -17,10 +17,12 @@ const Form = () => {
             setError('Enter model')
         } else if (data.price === '') {
             setError('Enter price')
-        } else if (data.year === '') {
+        } else if (data.year === ''){
             setError('Enter year')
+        } else if (data.year < 1990 || data.year > 2022 ){
+            setError('Greater than or equal to 1990 and less than or equal to 2022.')
         } else {
-            dispatch(addCar({data}));
+            dispatch(createCar({data}));
             setError(null)
             reset();
         }
@@ -41,7 +43,6 @@ const Form = () => {
             </div>
             <div>
             </div>
-            <button onClick={() => dispatch(deleteAll())}>Delete all</button>
             <div className={css.sort}>
                 <button onClick={() => dispatch(sortByModel())}>Sort by model</button>
                 <button onClick={() => dispatch(sortByPrice())}>Sort by price</button>

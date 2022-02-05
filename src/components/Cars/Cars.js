@@ -19,7 +19,7 @@ const Cars = () => {
     return (
         <div className={css.all}>
             {status === 'pending' && <h2>Loading...</h2>}
-            {error &&<h2> {error}</h2>}
+            {status === 'rejected' &&<h2> {error}</h2>}
             {cars.map(car=><Car key={car.id} car={car}/>)}
         </div>
     );
